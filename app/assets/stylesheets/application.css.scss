@@ -1,0 +1,77 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require_tree .
+*= stub active_admin
+
+*= require_self
+*/
+
+@import "bootstrap-select";
+
+@import "bootstrap-sprockets";
+
+// Import cerulean variables
+@import "bootswatch/superhero/variables";
+
+// Then bootstrap itself
+@import "bootstrap";
+
+// Bootstrap body padding for fixed navbar
+body { padding-top: 60px; }
+
+// And finally bootswatch style itself
+@import "bootswatch/superhero/bootswatch";
+
+
+//->Prelang (ui_framework:twitter_bootstrap)
+
+// Give everything in 'yield' margin to separate it.
+.yield {
+  margin: 30px;
+}
+
+// Constrain forms for models (scaffolded models) so they aren't full page width.
+.form-model {
+  max-width: 750px;
+}
+
+//->Prelang (user_login:devise)
+.form-user {
+  max-width: 450px;
+}
+
+cc {
+  max-width: 50px;
+}
+
+.field_with_errors {
+  @extend .has-error;
+  display: inline;
+}
+
+
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+  float: left;
+  margin-right: 4px;
+  width: 110px;
+  height: 32px;
+  input{
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transform: translate(-300px, 0) scale(4);
+    direction: ltr;
+    cursor: pointer;
+  }
+}

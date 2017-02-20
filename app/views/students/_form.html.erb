@@ -1,0 +1,77 @@
+<%= form_for @student, :html => { :multipart => true, :class => 'form-horizontal form-model' } do |f| %>
+    <div class="form-group">
+      <%= f.label :grade_id, :class => 'control-label col-md-2' %>
+      <div class="col-md-3">
+        <%= f.collection_select(:grade_id, Grade.all, :id, :grade_name, {}, {:class => 'selectpicker form-control'}) %>
+      </div>
+    </div>
+
+  <div class="form-group">
+    <%= f.label :student_first_name, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :student_first_name, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :student_surname_name, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :student_surname_name, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :parent_name, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :parent_name, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :parent_email, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.email_field :parent_email, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :student_email, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.email_field :student_email, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :mobile_number, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :mobile_number, :class => 'text-field form-control ' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :full_address, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :full_address, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :sick_or_holiday, :class => 'control-label col-md-2' %>
+    <div class="col-md-1">
+      <%= f.check_box :sick_or_holiday, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :daily_arrival, :class => 'control-label col-md-2' %>
+    <div class="col-md-2">
+      <%= f.time_select(:daily_arrival, {}, {:class => 'selectpicker form-control ', :style => 'inline'}) %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :comments, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :comments, :class => 'text-field form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  students_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>

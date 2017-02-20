@@ -1,0 +1,53 @@
+<%- model_class = Student -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Student %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:student_first_name) %></th>
+      <th><%= model_class.human_attribute_name(:student_surname_name) %></th>
+      <th><%= model_class.human_attribute_name(:parent_name) %></th>
+      <th><%= model_class.human_attribute_name(:parent_email) %></th>
+      <th><%= model_class.human_attribute_name(:student_email) %></th>
+      <th><%= model_class.human_attribute_name(:mobile_number) %></th>
+      <th><%= model_class.human_attribute_name(:full_address) %></th>
+      <th><%= model_class.human_attribute_name(:sick_or_holiday) %></th>
+      <th><%= model_class.human_attribute_name(:daily_arrival) %></th>
+      <th><%= model_class.human_attribute_name(:comments) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.id %></td>
+        <td><%= student.student_first_name %></td>
+        <td><%= student.student_surname_name %></td>
+        <td><%= student.parent_name %></td>
+        <td><%= student.parent_email %></td>
+        <td><%= student.student_email %></td>
+        <td><%= student.mobile_number %></td>
+        <td><%= student.full_address %></td>
+        <td><%= student.sick_or_holiday %></td>
+        <td><%= student.daily_arrival %></td>
+        <td><%= student.comments %></td>
+        <td><%=l student.created_at, format: :long %></td>
+        <td>
+          <%= link_to student_path(student), :class => 'btn btn-warning', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+              <%= label_tag "Edit" %>
+          <%- end -%>
+          <%= link_to student_path(student), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+              <%= label_tag "Delete" %>
+          <%- end -%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_student_path,
+            :class => 'btn btn-primary' %>

@@ -1,0 +1,15 @@
+<div class="page-header">
+  <h1 class="containers"><%=t '.title', :default => "My Page" %></h1>
+  <p class="lead">For the Kids....</p>
+</div>
+
+<% @workloads.take(6).each do |workload| %>
+
+    <div class="form-group">
+      <h1><%= workload.name %></h1>
+      <div class="col-md-10">
+        <%= image_tag(workload.image_path, :class => 'img-responsive')  %>
+      </div>
+    </div>
+
+<% end %>

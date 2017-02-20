@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  grade_id: 
+  student_first_name: MyString
+  student_surname_name: MyString
+  parent_name: MyString
+  parent_email: MyString
+  student_email: MyString
+  mobile_number: MyString
+  full_address: MyText
+  sick_or_holiday: false
+  daily_arrival: 2017-02-17 11:34:35
+  comments: MyText
+
+two:
+  grade_id: 
+  student_first_name: MyString
+  student_surname_name: MyString
+  parent_name: MyString
+  parent_email: MyString
+  student_email: MyString
+  mobile_number: MyString
+  full_address: MyText
+  sick_or_holiday: false
+  daily_arrival: 2017-02-17 11:34:35
+  comments: MyText

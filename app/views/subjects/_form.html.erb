@@ -1,0 +1,22 @@
+<%= form_for @subject, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :subject_name, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :subject_name, :class => 'text-field form-control' %>
+    </div>
+  </div>
+    <div class="form-group open">
+      <%= f.label :department_id, :class => 'control-label col-md-2' %>
+      <div class="btn-group open">
+        <%= f.collection_select(:department_id, @department.all, :id, :department_name, {}, {:class => 'selectpicker form-control'}) %>
+      </div>
+    </div>
+
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  subjects_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>

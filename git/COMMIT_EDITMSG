@@ -1,0 +1,26 @@
+Revert "working copy"
+
+This reverts commit 25b3cc017903d6cfb9e74a4d7a5f03e7c066e94a.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is behind 'origin/master' by 1 commit, and can be fast-forwarded.
+#   (use "git pull" to update your local branch)
+#
+# Changes not staged for commit:
+#	modified:   .gitignore
+#	modified:   .idea/workspace.xml
+#	modified:   config/routes.rb
+#	modified:   db/schema.rb
+#
+# Untracked files:
+#	app/models/comment.rb
+#	app/models/parent.rb
+#	db/migrate/20170220195703_devise_create_parents.rb
+#	db/migrate/20170220195954_create_comments.rb
+#	test/fixtures/comments.yml
+#	test/fixtures/parents.yml
+#	test/models/comment_test.rb
+#	test/models/parent_test.rb
+#

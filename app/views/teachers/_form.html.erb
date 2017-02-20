@@ -1,0 +1,34 @@
+<%= form_for @teacher, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :fullname, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :fullname, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.email_field :email, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :title, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :title, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :mobile_number, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :mobile_number, :class => 'text-field form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  teachers_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>

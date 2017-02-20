@@ -1,0 +1,7 @@
+0000000000000000000000000000000000000000 80b22d745606d479779d0def7c97b6395be9058c Mahmoud Hakeem-Habeeb <mahmoudhakh@gmail.com> 1487331465 +0000	clone: from https://github.com/ay4you/attendance.13.git
+80b22d745606d479779d0def7c97b6395be9058c 93e482d9699a7bc9175818dd1a647c417919154e Mahmoud Hakeem-Habeeb <mahmoudhakh@gmail.com> 1487332476 +0000	commit: Executed 'bundle install' to fetch and install required Ruby Gems
+93e482d9699a7bc9175818dd1a647c417919154e bcf444f2939ec025ee4700d32a0eea231f9dfcf2 Mahmoud Hakeem-Habeeb <mahmoudhakh@gmail.com> 1487332612 +0000	commit: Executed 'bundle install' to fetch and install required Ruby Gems
+bcf444f2939ec025ee4700d32a0eea231f9dfcf2 ae4f188bbaf185ab7b054b58bc54a212bd327c9e Mahmoud Hakeem-Habeeb <mahmoudhakh@gmail.com> 1487332625 +0000	commit: Executed 'rake db:migrate' (development and test) to migrate all generated migrations which created schema.rb
+ae4f188bbaf185ab7b054b58bc54a212bd327c9e cff32b9ece9882809ae25ce7b454e5aa85860145 Mahmoud Hakeem-Habeeb <mahmoudhakh@gmail.com> 1487620200 +0000	commit: working copy
+cff32b9ece9882809ae25ce7b454e5aa85860145 25b3cc017903d6cfb9e74a4d7a5f03e7c066e94a Mahmoud Hakeem-Habeeb <mahmoudhakh@gmail.com> 1487622697 +0000	commit: working copy
+25b3cc017903d6cfb9e74a4d7a5f03e7c066e94a cff32b9ece9882809ae25ce7b454e5aa85860145 Mahmoud Hakeem-Habeeb <mahmoudhakh@gmail.com> 1487622906 +0000	reset: moving to HEAD~
