@@ -2,21 +2,21 @@
   <div class="form-group">
     <%= f.label :grade_name, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :grade_name, :class => 'text-field form-control' %>
+      <%= f.text_field :grade_name, required: true, :class => 'text-field form-control' %>
     </div>
   </div>
 
       <div class="form-group open">
         <%= f.label :teacher_id, :class => 'control-label col-md-2' %>
         <div class="btn-group open">
-        <%= f.collection_select(:teacher_id, @teacher.all, :id, :fullname, {}, {:class => 'form-control'}) %>
+        <%= f.collection_select(:teacher_id, @teacher.all, :id, :fullname, {}, {:class => 'selectpicker form-control'}) %>
       </div>
       </div>
 
       <div class="form-group open">
         <%= f.label :department_id, :class => 'control-label col-md-2' %>
         <div class="btn-group open">
-        <%= f.collection_select(:department_id, @department.all, :id, :department_name, {}, {:class => 'form-control cc'}) %>
+        <%= f.collection_select(:department_id, @department.all, :id, :department_name, {}, {:class => 'selectpicker form-control'}) %>
       </div>
     </div>
 

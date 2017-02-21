@@ -1,13 +1,13 @@
 <%= form_for @report, :html => { :class => 'form-horizontal form-model' } do |f| %>
   <div class="form-group">
     <%= f.label :name, :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
-      <%= f.text_field :name, :class => 'text-field form-control' %>
+    <div class="col-md-8">
+      <%= f.text_field :name, required: true, :class => 'text-field form-control' %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :semester, :class => 'control-label col-md-2' %>
-    <div class="col-md-5">
+    <div class="btn-group open">
       <%= f.select(:semester, options_for_select([ '1', '2', '3']), {:prompt => 'Select One'} , {:class => 'selectpicker form-control'}) %>
     </div>
   </div>
@@ -26,8 +26,8 @@
   </div>
   <div class="form-group">
     <%= f.label :class_year, :class => 'control-label col-md-2' %>
-    <div class="col-md-3">
-      <%= f.date_select(:class_year, {:order => [:month, :year]}, {:class => 'selectpicker form-control', :style => 'inline'}) %>
+    <div class="btn-group open">
+      <%= f.date_select(:class_year, {:order => [:month, :year]}, {:class => 'selectpicker form-control'}) %>
     </div>
   </div>
 
