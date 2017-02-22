@@ -5,6 +5,7 @@ class CreateStudents < ActiveRecord::Migration
       t.string :student_first_name
       t.string :student_surname_name
       t.string :parent_name
+      t.string :image_path
       t.string :parent_email
       t.string :student_email
       t.string :mobile_number

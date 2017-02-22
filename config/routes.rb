@@ -30,6 +30,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :parents do
+    #->Prelang (voting/acts_as_votable)
+    member do
+      get "vote"
+    end
+  end
 
   resources :results do
   #->Prelang (voting/acts_as_votable)
