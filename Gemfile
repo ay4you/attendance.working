@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -55,6 +56,7 @@ gem 'acts_as_votable', github: 'ryanto/acts_as_votable'
 gem 'binding_of_caller'
 gem 'bootswatch-rails'
 gem 'bootstrap-select-rails'
+
 
 group :development do
   gem 'better_errors'

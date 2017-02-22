@@ -4,6 +4,7 @@ class AttendancesController < ApplicationController
   # GET /workloads.json
   def index
     @workloads = Workload.all
+
   end
 
   # GET /workloads/1

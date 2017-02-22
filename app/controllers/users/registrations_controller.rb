@@ -1,6 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   include ApplicationHelper
 
+
   def create
     super
   end
@@ -13,9 +14,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
+
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "User deleted"
     redirect_to root_path
   end
+
 end
