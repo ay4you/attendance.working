@@ -9,3 +9,4 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
 %w(teacher banned parent admin).each do |role|
   Role.find_or_create_by({name: role})
 end
+User.create!(email: 'test@test.com', password: 'testing', password_confirmation: 'testing', username: 'test', role_id: 4)
