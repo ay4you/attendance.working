@@ -10,7 +10,7 @@
       <span class="icon-bar"></span>
     </button>
   </div>
-     <% if current_user.present? && current_user.role_id == Role.find_by_name('admin').id %>
+  <% if current_user.present? && current_user.role_id == Role.find_by_name('moderator').id %>
       <% if defined?(Devise) %> <!-- start devise -->
           <div class="collapse navbar-collapse" id="navbar-collapse-6">
     <ul class="nav navbar-nav">
@@ -44,7 +44,7 @@
     </ul>
   </div><!-- /.navbar-collapse -->
       <% end %> <!-- start devise -->
-<% elsif current_user.present? && current_user.role_id == Role.find_by_name('moderator').id %>
+  <% elsif current_user.present? && current_user.role_id == Role.find_by_name('admin').id %>
       <% if defined?(Devise) %> <!-- start devise -->
           <div class="collapse navbar-collapse" id="navbar-collapse-6">
         <ul class="nav navbar-nav">
@@ -128,7 +128,6 @@
             </ul>
           </div><!-- /.navbar-collapse -->
       <% end %> <!-- start devise -->
-
   <% else %>
       <% if defined?(Devise) %> <!-- start devise -->
           <div class="collapse navbar-collapse" id="navbar-collapse-6">
@@ -154,9 +153,8 @@
                     </li>
                 <% end %>
               </ul>
-            </div><!-- /.
+            </div>
       <% end %> <!-- start devise -->
-
   <% end %>
 
 </nav>
