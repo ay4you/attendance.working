@@ -30,7 +30,8 @@ class ParentsController < InheritedResources::Base
   # POST /parents.json
   def create
     @parent = Parent.new(parent_params)
-    @parent.user = current_user
+    @student = Student.find_by(parent_email: @parent.email)
+    @parent.student_id = Student.find_by(parent_email: @parent.email).id
 
     respond_to do |format|
       if @parent.save
@@ -76,7 +77,7 @@ class ParentsController < InheritedResources::Base
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def parent_params
-    params.require(:parent).permit(:fullname, :email, :title, :image_path, :mobile_number)
+    params.require(:parent).permit(:fullname, :email, :title, :image_path, :mobile_number, :student_id)
   end
 end
 

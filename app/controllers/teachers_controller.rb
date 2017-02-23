@@ -30,7 +30,6 @@ class TeachersController < ApplicationController
   # POST /teachers.json
   def create
     @teacher = Teacher.new(teacher_params)
-    @teacher.user = current_user
 
     respond_to do |format|
       if @teacher.save
@@ -90,6 +89,7 @@ class TeachersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_teacher
+#      @teacher = current_user.teacher.find(params[:id])
       @teacher = Teacher.find(params[:id])
     end
 

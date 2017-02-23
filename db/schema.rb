@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222160620) do
+ActiveRecord::Schema.define(version: 20170223194042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 20170222160620) do
     t.string   "image_path"
     t.datetime "created_at",    default: '2017-02-23 16:01:47'
     t.datetime "updated_at",    default: '2017-02-23 16:01:47'
+    t.integer  "student_id"
   end
 
   create_table "reports", force: :cascade do |t|
@@ -229,5 +230,6 @@ ActiveRecord::Schema.define(version: 20170222160620) do
 
   add_index "workloads", ["subject_id"], name: "index_workloads_on_subject_id", using: :btree
 
+  add_foreign_key "parents", "students"
   add_foreign_key "users", "roles"
 end
