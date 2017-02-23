@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20170222160620) do
     t.string   "resource_type",                                 null: false
     t.integer  "author_id"
     t.string   "author_type"
-    t.datetime "created_at",    default: '2017-02-22 11:15:45'
-    t.datetime "updated_at",    default: '2017-02-22 11:15:45'
+    t.datetime "created_at",    default: '2017-02-23 10:08:04'
+    t.datetime "updated_at",    default: '2017-02-23 10:08:04'
   end
 
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 20170222160620) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",             default: '2017-02-22 11:15:45'
-    t.datetime "updated_at",             default: '2017-02-22 11:15:45'
+    t.datetime "created_at",             default: '2017-02-23 10:08:04'
+    t.datetime "updated_at",             default: '2017-02-23 10:08:04'
   end
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 20170222160620) do
     t.integer  "commentable_id"
     t.integer  "parent_id"
     t.text     "body"
-    t.datetime "created_at",       default: '2017-02-22 11:15:45'
-    t.datetime "updated_at",       default: '2017-02-22 11:15:45'
+    t.datetime "created_at",       default: '2017-02-23 10:08:04'
+    t.datetime "updated_at",       default: '2017-02-23 10:08:04'
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -68,24 +68,24 @@ ActiveRecord::Schema.define(version: 20170222160620) do
     t.datetime "failed_at"
     t.string   "locked_by"
     t.string   "queue"
-    t.datetime "created_at", default: '2017-02-22 11:15:45'
-    t.datetime "updated_at", default: '2017-02-22 11:15:45'
+    t.datetime "created_at", default: '2017-02-23 10:08:04'
+    t.datetime "updated_at", default: '2017-02-23 10:08:04'
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "departments", force: :cascade do |t|
     t.string   "department_name"
-    t.datetime "created_at",      default: '2017-02-22 11:15:45'
-    t.datetime "updated_at",      default: '2017-02-22 11:15:45'
+    t.datetime "created_at",      default: '2017-02-23 10:08:04'
+    t.datetime "updated_at",      default: '2017-02-23 10:08:04'
   end
 
   create_table "grades", force: :cascade do |t|
     t.string   "grade_name"
     t.integer  "teacher_id"
     t.integer  "department_id"
-    t.datetime "created_at",    default: '2017-02-22 11:15:45'
-    t.datetime "updated_at",    default: '2017-02-22 11:15:45'
+    t.datetime "created_at",    default: '2017-02-23 10:08:04'
+    t.datetime "updated_at",    default: '2017-02-23 10:08:04'
   end
 
   add_index "grades", ["department_id"], name: "index_grades_on_department_id", using: :btree
@@ -97,8 +97,8 @@ ActiveRecord::Schema.define(version: 20170222160620) do
     t.date     "class_year"
     t.integer  "subject_id"
     t.integer  "student_id"
-    t.datetime "created_at", default: '2017-02-22 11:15:45'
-    t.datetime "updated_at", default: '2017-02-22 11:15:45'
+    t.datetime "created_at", default: '2017-02-23 10:08:04'
+    t.datetime "updated_at", default: '2017-02-23 10:08:04'
   end
 
   add_index "reports", ["student_id"], name: "index_reports_on_student_id", using: :btree
@@ -109,8 +109,8 @@ ActiveRecord::Schema.define(version: 20170222160620) do
     t.string   "name"
     t.integer  "workload_id"
     t.integer  "report_id"
-    t.datetime "created_at",  default: '2017-02-22 11:15:45'
-    t.datetime "updated_at",  default: '2017-02-22 11:15:45'
+    t.datetime "created_at",  default: '2017-02-23 10:08:04'
+    t.datetime "updated_at",  default: '2017-02-23 10:08:04'
   end
 
   add_index "results", ["report_id"], name: "index_results_on_report_id", using: :btree
@@ -135,8 +135,8 @@ ActiveRecord::Schema.define(version: 20170222160620) do
     t.text     "full_address"
     t.boolean  "sick_or_holiday"
     t.text     "comments"
-    t.datetime "created_at",           default: '2017-02-22 11:15:45'
-    t.datetime "updated_at",           default: '2017-02-22 11:15:45'
+    t.datetime "created_at",           default: '2017-02-23 10:08:04'
+    t.datetime "updated_at",           default: '2017-02-23 10:08:04'
   end
 
   add_index "students", ["grade_id"], name: "index_students_on_grade_id", using: :btree
@@ -144,8 +144,8 @@ ActiveRecord::Schema.define(version: 20170222160620) do
   create_table "subjects", force: :cascade do |t|
     t.integer  "department_id"
     t.string   "subject_name"
-    t.datetime "created_at",    default: '2017-02-22 11:15:45'
-    t.datetime "updated_at",    default: '2017-02-22 11:15:45'
+    t.datetime "created_at",    default: '2017-02-23 10:08:04'
+    t.datetime "updated_at",    default: '2017-02-23 10:08:04'
   end
 
   add_index "subjects", ["department_id"], name: "index_subjects_on_department_id", using: :btree
@@ -164,8 +164,8 @@ ActiveRecord::Schema.define(version: 20170222160620) do
     t.string   "title"
     t.string   "mobile_number"
     t.string   "image_path"
-    t.datetime "created_at",    default: '2017-02-22 11:15:45'
-    t.datetime "updated_at",    default: '2017-02-22 11:15:45'
+    t.datetime "created_at",    default: '2017-02-23 10:08:04'
+    t.datetime "updated_at",    default: '2017-02-23 10:08:04'
   end
 
   create_table "users", force: :cascade do |t|
@@ -179,11 +179,10 @@ ActiveRecord::Schema.define(version: 20170222160620) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",             default: '2017-02-22 11:15:45'
-    t.datetime "updated_at",             default: '2017-02-22 11:15:45'
+    t.datetime "created_at",             default: '2017-02-23 10:08:04'
+    t.datetime "updated_at",             default: '2017-02-23 10:08:04'
     t.string   "username"
     t.string   "fullname"
-    t.integer  "roles",                  default: 0
     t.integer  "role_id"
   end
 
@@ -200,8 +199,8 @@ ActiveRecord::Schema.define(version: 20170222160620) do
     t.boolean  "vote_flag"
     t.string   "vote_scope"
     t.integer  "vote_weight"
-    t.datetime "created_at",   default: '2017-02-22 11:15:45'
-    t.datetime "updated_at",   default: '2017-02-22 11:15:45'
+    t.datetime "created_at",   default: '2017-02-23 10:08:04'
+    t.datetime "updated_at",   default: '2017-02-23 10:08:04'
   end
 
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
@@ -213,8 +212,8 @@ ActiveRecord::Schema.define(version: 20170222160620) do
     t.string   "image_path"
     t.string   "score"
     t.integer  "subject_id"
-    t.datetime "created_at", default: '2017-02-22 11:15:45'
-    t.datetime "updated_at", default: '2017-02-22 11:15:45'
+    t.datetime "created_at", default: '2017-02-23 10:08:04'
+    t.datetime "updated_at", default: '2017-02-23 10:08:04'
   end
 
   add_index "workloads", ["subject_id"], name: "index_workloads_on_subject_id", using: :btree
