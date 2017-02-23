@@ -16,9 +16,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
   def destroy
-    User.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    User.update(current_user.id, role_id: 2)
+    flash[:success] = "User Banned"
+    sign_out current_user
+    session[:user_id] = nil
     redirect_to root_path
-  end
+    end
 
 end

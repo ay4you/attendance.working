@@ -47,10 +47,16 @@
   <% elsif current_user.present? && current_user.role_id == Role.find_by_name('admin').id %>
       <% if defined?(Devise) %> <!-- start devise -->
           <div class="collapse navbar-collapse" id="navbar-collapse-6">
-        <ul class="nav navbar-nav">
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <%= link_to('Reports', '/reports', :method => :get, class: 'navbar-brand') %>
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <%= link_to('Teachers', '/teachers', :method => :get, class: 'navbar-brand') %>
+              <%= link_to('Students', '/students', :method => :get, class: 'navbar-brand') %>
+              <%= link_to('Grades', '/grades', :method => :get, class: 'navbar-brand') %>
+              <%= link_to('Workloads', '/workloads', :method => :get, class: 'navbar-brand') %>
+              <%= link_to('Reports', '/reports', :method => :get, class: 'navbar-brand') %>
+              <%= link_to('Results', '/results', :method => :get, class: 'navbar-brand') %>
+              <%= link_to('Departments', '/departments', :method => :get, class: 'navbar-brand') %>
               <% if user_signed_in? %>
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
@@ -69,8 +75,8 @@
                     </ul>
                   </li>
               <% end %>
-        </ul>
-      </div><!-- /.navbar-collapse -->
+            </ul>
+          </div><!-- /.navbar-collapse -->
       <% end %> <!-- start devise -->
   <% elsif current_user.present? && current_user.role_id == Role.find_by_name('registered').id %>
       <% if defined?(Devise) %> <!-- start devise -->
