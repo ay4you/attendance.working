@@ -6,6 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
-%w(registered banned moderator admin).each do |role|
+%w(teacher banned parent admin).each do |role|
   Role.find_or_create_by({name: role})
 end

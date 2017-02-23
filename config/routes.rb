@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   resources :subjects
 
+  resources :parents
+
   resources :departments
 
   resources :students do

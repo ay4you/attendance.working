@@ -7,6 +7,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def new
+    # @user = User.new
+    # @user.role_id = current_user.role_id
     super
   end
 

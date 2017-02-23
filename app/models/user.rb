@@ -23,7 +23,12 @@ class User < ActiveRecord::Base
 
   private
   def set_default_role
-    self.role ||= Role.find_by_name('registered')
+    # if current_user.role_id.defined?
+    #   self.role_id = current_user.role_id
+    # else
+    #   self.role_id ||= Role.find_by_name('parent').id
+    # end
+    self.role_id ||= Role.find_by_name('parent').id
   end
 
   devise authentication_keys: [:login]
