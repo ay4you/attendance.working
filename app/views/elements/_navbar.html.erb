@@ -2,7 +2,7 @@
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
 
-  <%= link_to 'Attendance', defined?(root_path) ? root_path : '#', class: 'navbar-brand' %>
+    <%= link_to 'Attendance', defined?(root_path) ? root_path : '#', class: 'navbar-brand' %>
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-6">
       <span class="sr-only">Toggle navigation</span>
       <span class="icon-bar"></span>
@@ -10,47 +10,15 @@
       <span class="icon-bar"></span>
     </button>
   </div>
-  <% if current_user.present? && current_user.role_id == Role.find_by_name('teacher').id %>
-      <% if defined?(Devise) %> <!-- start devise -->
-          <div class="collapse navbar-collapse" id="navbar-collapse-6">
-    <ul class="nav navbar-nav">
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <%= link_to('Teachers', '/teachers', :method => :get, class: 'navbar-brand') %>
-      <%= link_to('Students', '/students', :method => :get, class: 'navbar-brand') %>
-      <%= link_to('Subjects', '/subjects', :method => :get, class: 'navbar-brand') %>
-      <%= link_to('Grades', '/grades', :method => :get, class: 'navbar-brand') %>
-      <%= link_to('Workloads', '/workloads', :method => :get, class: 'navbar-brand') %>
-      <%= link_to('Reports', '/reports', :method => :get, class: 'navbar-brand') %>
-      <%= link_to('Results', '/results', :method => :get, class: 'navbar-brand') %>
-      <%= link_to('Departments', '/departments', :method => :get, class: 'navbar-brand') %>
-          <% if user_signed_in? %>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><%= link_to "Edit Account", edit_user_registration_path , class: 'navbar-brand'%></li>
-                  <li class="divider"></li>
-                  <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'navbar-brand' %></li>
-                </ul>
-              </li>
-          <% else %>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-              <li><%= link_to "Login", new_user_session_path , class: 'navbar-brand'%></li>
-              <li><%= link_to "Sign Up", new_user_registration_path, class: 'navbar-brand' %></li>
-                </ul>
-              </li>
-          <% end %>
-    </ul>
-  </div><!-- /.navbar-collapse -->
-      <% end %> <!-- start devise -->
-  <% elsif current_user.present? && current_user.role_id == Role.find_by_name('admin').id %>
-      <% if defined?(Devise) %> <!-- start devise -->
-          <div class="collapse navbar-collapse" id="navbar-collapse-6">
-            <ul class="nav navbar-nav">
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
+
+  <% if defined?(Devise) %> <!-- start devise -->
+      <div class="collapse navbar-collapse" id="navbar-collapse-6">
+        <ul class="nav navbar-nav">
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+      <% if current_user.present? && current_user.role_id == Role.find_by_name('teacher').id %>
+
+
               <%= link_to('Teachers', '/teachers', :method => :get, class: 'navbar-brand') %>
               <%= link_to('Students', '/students', :method => :get, class: 'navbar-brand') %>
               <%= link_to('Subjects', '/subjects', :method => :get, class: 'navbar-brand') %>
@@ -59,110 +27,59 @@
               <%= link_to('Reports', '/reports', :method => :get, class: 'navbar-brand') %>
               <%= link_to('Results', '/results', :method => :get, class: 'navbar-brand') %>
               <%= link_to('Departments', '/departments', :method => :get, class: 'navbar-brand') %>
-              <% if user_signed_in? %>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                      <li><%= link_to "Edit Account", edit_user_registration_path , class: 'navbar-brand'%></li>
-                      <li class="divider"></li>
-                      <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'navbar-brand' %></li>
-                    </ul>
-                  </li>
-              <% else %>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                      <li><%= link_to "Login", new_user_session_path , class: 'navbar-brand'%></li>
-                      <li><%= link_to "Sign Up", new_user_registration_path, class: 'navbar-brand' %></li>
-                    </ul>
-                  </li>
-              <% end %>
-            </ul>
-          </div><!-- /.navbar-collapse -->
-      <% end %> <!-- start devise -->
-  <% elsif current_user.present? && current_user.role_id == Role.find_by_name('parent').id %>
-      <% if defined?(Devise) %> <!-- start devise -->
-          <div class="collapse navbar-collapse" id="navbar-collapse-6">
-        <ul class="nav navbar-nav">
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <%= link_to('Parent', '/parents', :method => :get, class: 'navbar-brand') %>
-              <% if user_signed_in? %>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                      <li><%= link_to "Edit Account", edit_user_registration_path , class: 'navbar-brand'%></li>
-                      <li class="divider"></li>
-                      <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'navbar-brand' %></li>
-                    </ul>
-                  </li>
-              <% else %>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                      <li><%= link_to "Login", new_user_session_path , class: 'navbar-brand'%></li>
-                      <li><%= link_to "Sign Up", new_user_registration_path, class: 'navbar-brand' %></li>
-                    </ul>
-                  </li>
-          <% end %>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-      <% end %> <!-- start devise -->
-  <% elsif current_user.present? && current_user.role_id == Role.find_by_name('banned').id %>
-      <% if defined?(Devise) %> <!-- start devise -->
-          <div class="collapse navbar-collapse" id="navbar-collapse-6">
-            <ul class="nav navbar-nav">
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <%= link_to('Reports', '/reports', :method => :get, class: 'navbar-brand') %>
-              <% if user_signed_in? %>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                      <li><%= link_to "Edit Account", edit_user_registration_path , class: 'navbar-brand'%></li>
-                      <li class="divider"></li>
-                      <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'navbar-brand' %></li>
-                    </ul>
-                  </li>
-              <% else %>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                      <li><%= link_to "Login", new_user_session_path , class: 'navbar-brand'%></li>
-                      <li><%= link_to "Sign Up", new_user_registration_path, class: 'navbar-brand' %></li>
-                    </ul>
-                  </li>
-              <% end %>
-            </ul>
-          </div><!-- /.navbar-collapse -->
-      <% end %> <!-- start devise -->
-  <% else %>
-      <% if defined?(Devise) %> <!-- start devise -->
-          <div class="collapse navbar-collapse" id="navbar-collapse-6">
-              <ul class="nav navbar-nav">
+
+      <% elsif current_user.present? && current_user.role_id == Role.find_by_name('admin').id %>
+
+                  <%= link_to('Teachers', '/teachers', :method => :get, class: 'navbar-brand') %>
+                  <%= link_to('Students', '/students', :method => :get, class: 'navbar-brand') %>
+                  <%= link_to('Subjects', '/subjects', :method => :get, class: 'navbar-brand') %>
+                  <%= link_to('Grades', '/grades', :method => :get, class: 'navbar-brand') %>
+                  <%= link_to('Workloads', '/workloads', :method => :get, class: 'navbar-brand') %>
+                  <%= link_to('Reports', '/reports', :method => :get, class: 'navbar-brand') %>
+                  <%= link_to('Results', '/results', :method => :get, class: 'navbar-brand') %>
+                  <%= link_to('Departments', '/departments', :method => :get, class: 'navbar-brand') %>
+
+          <% elsif current_user.present? && current_user.role_id == Role.find_by_name('parent').id %>
+
+                      <%= link_to('Parent', '/parents', :method => :get, class: 'navbar-brand') %>
+
+
+              <% elsif current_user.present? && current_user.role_id == Role.find_by_name('banned').id %>
+
+                          <%= link_to('Reports', '/reports', :method => :get, class: 'navbar-brand') %>
+
+             <% end %>
+
+                      <% if user_signed_in? %>
+                          <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                              <li><%= link_to "Edit Account", edit_user_registration_path %></li>
+                              <li class="divider"></li>
+                              <li><%= link_to "Sign Out", destroy_user_session_path %></li>
+                            </ul>
+                          </li>
+                      <% else %>
+                          <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                              <li><%= link_to "Login", new_user_session_path %></li>
+                              <li class="divider"></li>
+                              <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                              <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+                                  <li class="divider"></li>
+                                  <li><%= link_to "Unlock Account" , new_unlock_path %></li>
+                              <% end -%>
+
+                              <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+                                  <li class="divider"></li>
+                                  <li><%= link_to "Resend Confirmation", new_confirmation_path %></li>
+                              <% end -%>
+                            </ul>
+                          </li>
+                      <% end %>
               </ul>
-              <ul class="nav navbar-nav navbar-right">
-                <% if user_signed_in? %>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        <li><%= link_to "Edit Account", edit_user_registration_path , class: 'navbar-brand'%></li>
-                        <li class="divider"></li>
-                        <li><%= link_to "Sign Out", destroy_user_session_path, class: 'navbar-brand' %></li>
-                      </ul>
-                    </li>
-                <% else %>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        <li><%= link_to "Login", new_user_session_path , class: 'navbar-brand'%></li>
-                        <li><%= link_to "Sign Up", new_user_registration_path, class: 'navbar-brand' %></li>
-                      </ul>
-                    </li>
-                <% end %>
-              </ul>
-            </div>
-      <% end %> <!-- start devise -->
+            </div><!-- /.navbar-collapse -->
   <% end %>
 
 </nav>

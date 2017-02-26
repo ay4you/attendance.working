@@ -2,11 +2,17 @@ class User < ActiveRecord::Base
   belongs_to :role
   before_create :set_default_role
   cattr_accessor :current_user
+  has_many :parents, dependent: :destroy
+  has_many :teachers, dependent: :destroy
+  accepts_nested_attributes_for :parents
+  accepts_nested_attributes_for :teachers
+  # belongs_to :userable, :polymorphic => true
+  validates_uniqueness_of :username, :fullname
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
 
 
   attr_accessor :login
@@ -19,7 +25,6 @@ class User < ActiveRecord::Base
       where(conditions).first
     end
   end
-
 
   private
   def set_default_role

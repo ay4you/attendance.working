@@ -27,6 +27,7 @@ class StudentsController < ApplicationController
   # POST /students.json
   def create
     @student = Student.new(student_params)
+    @student.image_path = params[:student][:image_path].original_filename
 
     respond_to do |format|
       if @student.save
@@ -91,6 +92,14 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:grade_id, :student_first_name, :student_surname_name, :parent_name, :parent_email, :student_email, :mobile_number, :full_address, :sick_or_holiday, :daily_arrival, :comments)
+      uploaded_io = params[:student][:image_path]
+
+      if uploaded_io.present?
+        File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+          file.write(uploaded_io.read)
+        end
+      params.require(:student).permit(:grade_id, :student_first_name, :student_surname_name, :parent_name, :parent_email, :student_email, :mobile_number, :full_address, :sick_or_holiday, :daily_arrival, :image_path, :comments)
+      end
     end
+
 end

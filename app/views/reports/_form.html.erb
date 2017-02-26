@@ -1,4 +1,4 @@
-<%= form_for @report, :html => { :class => 'form-horizontal form-model' } do |f| %>
+<%= form_for @report, :html => {  :multipart => true, :class => 'form-horizontal form-model' } do |f| %>
   <div class="form-group">
     <%= f.label :name, :class => 'control-label col-md-2' %>
     <div class="col-md-8">
@@ -11,6 +11,24 @@
       <%= f.select(:semester, options_for_select([ '1', '2', '3']), {:prompt => 'Select One'} , {:class => 'selectpicker form-control'}) %>
     </div>
   </div>
+
+    <div class="form-group">
+      <%= f.label :grade_id, :class => 'control-label col-md-2' %>
+      <div class="btn-group open">
+        <%= f.collection_select(:grade_id, @grade.all, :id, :grade_name, {}, {:class => 'selectpicker form-control', :id => 'countries_select'}) %>
+      </div>
+    </div>
+
+
+
+
+    <!--<%= select_tag :first_select, options_from_collection_for_select(@grade, :id, :grade_name), :'data-remote' => 'true', :'data-url' => url_for(:controller => ReportsController, :action => 'getdata'), :'data-type' => 'json'  %>-->
+
+
+    <!--<%= select_tag :second_select, options_from_collection_for_select(@student.all, :id, :student_surname_name)  %>-->
+
+
+
     <div class="form-group">
       <%= f.label :student_id, :class => 'control-label col-md-2' %>
       <div class="btn-group open">

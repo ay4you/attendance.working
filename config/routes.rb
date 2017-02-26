@@ -13,8 +13,6 @@ Rails.application.routes.draw do
 
   resources :subjects
 
-  resources :parents
-
   resources :departments
 
   resources :students do
@@ -42,10 +40,11 @@ Rails.application.routes.draw do
 
 
   resources :reports
+  get 'report/getdata'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users, controllers: {registrations: "users/registrations", sessions: "users/sessions", passwords: "users/passwords"}, skip: [:sessions, :registrations]
+  devise_for :users, controllers: {registrations: "users/registrations", sessions: "users/sessions", passwords: "users/passwords", confirmations: 'users/confirmations' }, skip: [:sessions, :registrations]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -111,7 +110,12 @@ Rails.application.routes.draw do
     post      "signup"  => "users/registrations#create", as: :user_registration
     put       "signup"  => "users/registrations#update", as: :update_user_registration
     get       "account" => "users/registrations#edit",   as: :edit_user_registration
-    get       "delete" => "users/registrations#destroy",   as: :destroy_user_registration
+    get       "delete " => "users/registrations#destroy",   as: :destroy_user_registration
+
+    get       "confirmation " => "users/confirmations#new",        as: :new_confirmation
+    get       "resend " => "users/passwords#new",            as: :new_password
+    get       "unlock " => "users/unlocks#new",            as: :new_unlock
+
   end
 
 end

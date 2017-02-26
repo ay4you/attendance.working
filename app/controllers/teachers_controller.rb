@@ -30,6 +30,7 @@ class TeachersController < ApplicationController
   # POST /teachers.json
   def create
     @teacher = Teacher.new(teacher_params)
+    @teacher.image_path = params[:teacher][:image_path].original_filename
 
     respond_to do |format|
       if @teacher.save
@@ -95,6 +96,14 @@ class TeachersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def teacher_params
+      uploaded_io = params[:teacher][:image_path]
+
+      if uploaded_io.present?
+        File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+          file.write(uploaded_io.read)
+        end
       params.require(:teacher).permit(:fullname, :email, :title, :image_path, :mobile_number)
+      end
     end
+
 end

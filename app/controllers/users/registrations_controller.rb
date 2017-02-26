@@ -4,6 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     super
+    pp current_user
   end
 
   def new
@@ -16,6 +17,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  def find_userable
+    params.each do |name, value|
+      if name =~ /(.+)_id$/
+        return $1.classify.constantize.find(value)
+      end
+    end
+    nil
+  end
 
   def destroy
     User.update(current_user.id, role_id: 2)

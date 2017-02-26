@@ -27,6 +27,17 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  # Email config
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      address:              'localhost',
+      port:                 '1025',
+      enable_starttls_auto: false,
+  }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+
+  config.active_record.raise_in_transactional_callbacks = true
 
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.

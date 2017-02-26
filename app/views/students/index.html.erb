@@ -14,7 +14,6 @@
       <th><%= model_class.human_attribute_name(:mobile_number) %></th>
       <th><%= model_class.human_attribute_name(:full_address) %></th>
       <th><%= model_class.human_attribute_name(:sick_or_holiday) %></th>
-      <th><%= model_class.human_attribute_name(:daily_arrival) %></th>
       <th><%= model_class.human_attribute_name(:comments) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -32,7 +31,6 @@
         <td><%= student.mobile_number %></td>
         <td><%= student.full_address %></td>
         <td><%= student.sick_or_holiday %></td>
-        <td><%= student.daily_arrival %></td>
         <td><%= student.comments %></td>
         <td><%=l student.created_at, format: :long %></td>
         <td>

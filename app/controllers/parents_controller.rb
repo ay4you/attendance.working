@@ -32,6 +32,7 @@ class ParentsController < InheritedResources::Base
     @parent = Parent.new(parent_params)
     @student = Student.find_by(parent_email: @parent.email)
     @parent.student_id = Student.find_by(parent_email: @parent.email).id
+    @parent.image_path = params[:parent][:image_path].original_filename
 
     respond_to do |format|
       if @parent.save
@@ -77,8 +78,16 @@ class ParentsController < InheritedResources::Base
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def parent_params
+    uploaded_io = params[:parent][:image_path]
+
+    if uploaded_io.present?
+      File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
     params.require(:parent).permit(:fullname, :email, :title, :image_path, :mobile_number, :student_id)
+    end
   end
+
 end
 
 

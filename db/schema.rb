@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223194042) do
+ActiveRecord::Schema.define(version: 20170226110736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 20170223194042) do
     t.string   "image_path"
     t.datetime "created_at",    default: '2017-02-23 16:01:47'
     t.datetime "updated_at",    default: '2017-02-23 16:01:47'
-    t.integer  "student_id"
+    t.integer  "student_id",                                    null: false
   end
 
   create_table "reports", force: :cascade do |t|
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 20170223194042) do
     t.integer  "student_id"
     t.datetime "created_at", default: '2017-02-23 16:01:47'
     t.datetime "updated_at", default: '2017-02-23 16:01:47'
+    t.integer  "grade_id"
   end
 
   add_index "reports", ["student_id"], name: "index_reports_on_student_id", using: :btree
@@ -196,11 +197,23 @@ ActiveRecord::Schema.define(version: 20170223194042) do
     t.string   "fullname"
     t.string   "roles",                  default: "0"
     t.integer  "role_id"
+    t.integer  "userable_id"
+    t.string   "userable_type"
+    t.integer  "failed_attempts",        default: 0,                     null: false
+    t.string   "unlock_token"
+    t.datetime "locked_at"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["fullname"], name: "users_fullname_idx", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
+  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
+  add_index "users", ["userable_type", "userable_id"], name: "index_users_on_userable_type_and_userable_id", using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   create_table "votes", force: :cascade do |t|
@@ -231,5 +244,9 @@ ActiveRecord::Schema.define(version: 20170223194042) do
   add_index "workloads", ["subject_id"], name: "index_workloads_on_subject_id", using: :btree
 
   add_foreign_key "parents", "students"
+  add_foreign_key "parents", "users", column: "fullname", primary_key: "fullname", name: "parent_email_fkey", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "parents", "users", column: "fullname", primary_key: "fullname", name: "parent_fullname_fkey"
+  add_foreign_key "teachers", "users", column: "email", primary_key: "email", name: "teacher_email_fkey"
+  add_foreign_key "teachers", "users", column: "fullname", primary_key: "fullname", name: "teacher_fullname_fkey"
   add_foreign_key "users", "roles"
 end
